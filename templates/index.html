@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CPI Economic Predictor</title>
+</head>
+<body>
+
+<h2>Economic Trend Predictor</h2>
+
+<form method="POST">
+    <label>Enter recent CPI values (comma separated):</label><br><br>
+    <input type="text" name="cpi" size="60" placeholder="210.5, 211.2, 212.0, 213.5"><br><br>
+    <button type="submit">Predict</button>
+</form>
+
+{% if prediction %}
+<hr>
+<h3>Results</h3>
+
+<p><b>Trend:</b> {{ prediction["trend_prediction"] }}</p>
+<p><b>Acceleration:</b> {{ prediction["acceleration_prediction"] }}</p>
+<p><b>Economic Regime:</b> {{ prediction["regime_prediction"] }}</p>
+
+<hr>
+<h4>Interpretation</h4>
+<p>Trend shows long-term inflation direction.</p>
+<p>Acceleration shows how quickly inflation is changing.</p>
+<p>Regime shows the current macroeconomic phase.</p>
+
+{% endif %}
+
+</body>
+</html>
